@@ -5,7 +5,12 @@ public class Banco {
 
         contaLucas.transferir(300.0, contaMy);
         contaMy.renderJuros();
-        contaLucas.sacar(100.0);
+        try {
+            contaLucas.sacar(5000.0);
+            System.out.println("Saque de Lucas Realizado com sucesso.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Aviso do Sistema: " + e.getMessage());
+        }
         contaMy.sacar(100.0);
 
         

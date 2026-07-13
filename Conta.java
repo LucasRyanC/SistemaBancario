@@ -20,7 +20,10 @@ public class Conta {
     }
 
     public void sacar(double valor) {
-        saldo = saldo - valor;
+        if (valor > this.saldo) {
+            throw new IllegalArgumentException("Erro: Saldo insuficiente para este saque.");
+        }
+        this.saldo = this.saldo - valor;
     }
 
     public void transferir(double valor, Conta contaDestino) {
